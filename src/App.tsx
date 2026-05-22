@@ -9,7 +9,7 @@ import {
   TrendingUp, 
   Clock, 
   X,
-  Sparkles
+  Sprout
 } from "lucide-react";
 import { locales, type Translation } from "./locales";
 import { 
@@ -47,7 +47,7 @@ function App() {
     }
   }, []);
 
-  const handleCopyrightClick = () => {
+  const handleLogoClick = () => {
     setCopyrightClickCount(prev => {
       const next = prev + 1;
       if (next >= 5) {
@@ -819,11 +819,7 @@ function App() {
           </div>
         )}
 
-        <footer className="survey-footer admin-footer">
-          <p className="copyright-text">
-            &copy; {new Date().getFullYear()} {t.subtitle}
-          </p>
-        </footer>
+
       </div>
     );
   }
@@ -832,8 +828,12 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <div className="school-logo-container">
-          <Sparkles size={24} />
+        <div 
+          className="school-logo-container" 
+          onClick={handleLogoClick}
+          style={{ cursor: "default", userSelect: "none" }}
+        >
+          <Sprout size={24} />
         </div>
         <h1 className="app-title">{t.title}</h1>
         <p className="app-subtitle">{t.subtitle}</p>
@@ -1457,14 +1457,7 @@ function App() {
         </main>
       )}
 
-      <footer className="survey-footer">
-        <p 
-          className="copyright-text"
-          onClick={handleCopyrightClick}
-        >
-          &copy; {new Date().getFullYear()} {t.subtitle}
-        </p>
-      </footer>
+
     </div>
   );
 }
